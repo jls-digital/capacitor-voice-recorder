@@ -60,7 +60,7 @@ public class CustomMediaRecorder {
             tempMediaRecorder.stopRecording();
             return true;
         } catch (Exception exp) {
-            return exp.getMessage().startsWith("stop failed");
+            return exp.getMessage() != null ? exp.getMessage().startsWith("stop failed") : true;
         } finally {
             if (tempMediaRecorder != null)
                 tempMediaRecorder.deleteOutputFile();
